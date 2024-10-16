@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CompComponent } from './comp/comp.component';
 import { Comp3Component } from './comp3/comp3.component';
+import { sample } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,45 @@ export class AppComponent {
   
   // Var
   name:string = 'sample';
+
+  // Property Binding
+  isDisabled = true;
+
+  // class Binding
+  myClasses1 = 'success height40';
+  // used array
+  myClasses2 = ['success','height40'];
+  myClasses3 = {'success':this.isDisabled, 'height40':false}; //Add conditions
+  myClasses = {'success':this.isDisabled, 'height40':this.foo()}; //Add conditions
+
+  // Attribute binding
+  src = "https://images.unsplash.com/photo-1721332154373-17e78d19b4a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8";
+  width = "200"
+
+  // Style Binding
+  textStyle = {'color':'red','font-style':'italic'};
+
+  textId = "sampleId";
+
+  foo():boolean{
+    return true;
+
+  }
+
+  // Event Binding
+  clickSave():void{
+    // alert('Hello from App');
+    this.name = "Text Clicked";
+  }
+
+  over():void{
+    this.name = "Text Over";
+  }
+
+  txtChange():void{
+    this.name = "Text Changed";
+  }
+
 
   // list
   employees = ['jhon','saram','raj']

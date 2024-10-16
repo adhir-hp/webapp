@@ -3,6 +3,21 @@
 <h2>welcome</h2>
 <p>1+1 = {{1+1}}</p>
 <P>{{name}}</P>
+<P [style.color]="'green'" [style.font-size]="'30px'" >{{name}}</P>
+<P [style]="textStyle" [style.font-size.px]="'30'">{{name}}</P>
+
+
+<input type="text" [class]="myClasses" (change)="txtChange()" [id]="textId"><br/>
+<input type="text" [class.success]="isDisabled" class="height40" (change)="txtChange()" [id]="textId"><br/>
+<input type="text" (change)="txtChange()" id="{{textId}}">//This a string id pass in id<br/>
+<input type="button" value="Save" (click)="clickSave()" (mouseover)="over()" [disabled]="isDisabled"><br/>
+<img [attr.src]="src" [attr.width]="width"  alt="" srcset="">
+
+<br>
+<input type="text" #mytext value="abcd">
+<br>
+{{mytext.value}}
+<button [disabled]="!mytext.value">Save</button>
 
 <p>{{getName()}}</p>
 <p>{{getlname(1)}}</p>
