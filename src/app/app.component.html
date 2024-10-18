@@ -19,6 +19,63 @@
 {{mytext.value}}
 <button [disabled]="!mytext.value">Save</button>
 
+<br/>
+<br/>
+
+<div *ngIf="show">
+    <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+    </ul>
+</div>
+
+<div *ngIf="show && isDisabled">
+    <ul>
+        <li>1-One</li>
+        <li>2-Two</li>
+    </ul>
+</div>
+
+<div *ngIf="!show">
+    <p>No record found</p>
+</div>
+ 
+<!-- Property binding so here hidden = true -->
+<div [hidden]="show">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+<!-- elseblock is a template ref variable -->
+<div *ngIf="show; else elseblock">
+    <ul>
+        <li>Record found</li>
+    </ul>
+</div>
+<!-- so ngif is use template reference variable to display the else block when condition is false.so we use ng-template  -->
+<ng-template #elseblock>
+    <ul>
+        <li>Record not found</li>
+    </ul>
+</ng-template>
+
+<!-- second method -->
+ <div *ngIf="show; then record else elseblock"></div>
+ <ng-template #record>
+    <ul>
+        <li>second record found</li>
+    </ul>
+ </ng-template>
+ <ng-template #elseblock>
+    <ul>
+        <li>No second Record Found</li>
+    </ul>
+ </ng-template>
+
+<br/>
 <p>{{getName()}}</p>
 <p>{{getlname(1)}}</p>
 <p>{{getlname(23)}}</p>

@@ -3,12 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { CompComponent } from './comp/comp.component';
 import { Comp3Component } from './comp3/comp3.component';
 import { sample } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,
-    Comp3Component
+    Comp3Component,
+    CommonModule
 
   ],
   templateUrl: './app.component.html',
@@ -33,6 +35,9 @@ export class AppComponent {
   // Attribute binding
   src = "https://images.unsplash.com/photo-1721332154373-17e78d19b4a4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8";
   width = "200"
+
+  // create boolean type variable
+  show=true;
 
   // Style Binding
   textStyle = {'color':'red','font-style':'italic'};
